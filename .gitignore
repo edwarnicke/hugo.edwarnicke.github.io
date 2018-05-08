@@ -1,0 +1,12 @@
+## OS Files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.BIN/
+
+# Ignore Hugo generated public/ directory
+public/
+
+# OSX
+.DS_Store

@@ -1,3 +1,85 @@
-baseURL = "http://example.org/"
+baseURL = "https://edwarnicke.github.io"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Eudaimonic Tech" # Replace with your on title
+theme = "hugo-future-imperfect"
+[params]
+  # Sets the navbarTitle that appears in the top left of the navigation bar
+  navbarTitle          = "Eudaimonic Tech"
+  # https://github.com/audreyr/favicon-cheat-sheet
+  loadFavicon          = true
+  faviconVersion       = "1"
+  socialAppearAtTop    = true # Added to the [params] section
+  socialAppearAtBottom = true # Added to the [params] section
+  # Sets Social Share links to appear on posts
+  socialShare          = true
+  # Sets specific share to appear on posts (default behavior is to appear)
+  socialShareTwitter   = true
+  socialShareFacebook  = true
+  socialShareLinkedin  = true
+
+[social]
+  # Coding Communities
+  github           = "edwarnicke"
+  linkedin         = "edwarnicke"
+  facebook         = "edwarnicke"
+  twitter          = "edwarnicke"
+  youtube          = "channel/UCfKkzlRvD_9r8zjcMtC9uDA?view_as=subscriber"
+  gitlab           = ""
+  stackoverflow    = "" # User Number
+  bitbucket        = ""
+  jsfiddle         = ""
+  codepen          = ""
+  # Visual Art Communities
+  deviantart       = ""
+  flickr           = ""
+  behance          = ""
+  dribbble         = ""
+  # Publishing Communities
+  wordpress        = ""
+  medium           = ""
+  # Professional/Business Oriented Communities
+  linkedin_company = ""
+  foursquare       = ""
+  xing             = ""
+  slideshare       = ""
+  # Social Networks
+  googleplus       = ""
+  reddit           = ""
+  quora            = ""
+  vimeo            = ""
+  whatsapp         = "" # WhatsApp Number
+    # WeChat and QQ need testing.
+    wechat         = ""
+    qq             = "" # User ID Number
+  instagram        = ""
+  tumblr           = ""
+  skype            = ""
+  snapchat         = ""
+  pinterest        = ""
+  telegram         = ""
+  vine             = ""
+  googlescholar    = ""
+  orcid            = ""
+  researchgate     = ""
+  # Email
+  email            = ""
+[params.intro]
+  header    = "Eudaimonic Tech"
+  paragraph = "Technology for Human Flourishing"
+  about     = "Technology for Human Flourishing"
+[params.intro.pic]
+  src       = "img/eudaimonic.tech.logo.svg"
+  width     = "150px"
+  alt       = "Eudaimonic Tech"
+# Sets the menu items in the navigation bar
+# Identifier prepends a Font Awesome icon to the menu item
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  identifier = "fa fa-newspaper-o"
+  weight = 1
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  identifier = "fa fa-id-card-o"
+  weight = 2

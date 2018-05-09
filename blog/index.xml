@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Eudaimonic Tech</title>
+    <link>https://edwarnicke.github.io/blog/</link>
+    <description>Recent content in Blogs on Eudaimonic Tech</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 May 2018 08:53:40 -0500</lastBuildDate>
+    
+	<atom:link href="https://edwarnicke.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Publish to Github Pages</title>
+      <link>https://edwarnicke.github.io/blog/publish-to-github/</link>
+      <pubDate>Tue, 08 May 2018 08:53:40 -0500</pubDate>
+      
+      <guid>https://edwarnicke.github.io/blog/publish-to-github/</guid>
+      <description>Intro In this blog post we will be taking the Hugo website we created and publishing it via GitHub Pages.
+To accomplish this we will be creating two GitHub repos:
+ hugo.${GIT_USERNAME}.github.io - to contain the hugo source for the blog ${GIT_USERNAME}.github.io - to container the served static html for the blog  ${GIT_USERNAME}.github.io will be mounted a submodule in hugo.${GIT_USERNAME}.github.io &amp;rsquo;s public/ subdirectory.
+Publish Hugo Site via Github Prereqs  Sign up for a Github account if you don&amp;rsquo;t have one already  Save Hugo Source to Github Create a repo for Hugo source Note: Do not use ${GIT_USERNAME}.</description>
+    </item>
+    
+    <item>
+      <title>Inception</title>
+      <link>https://edwarnicke.github.io/blog/inception/</link>
+      <pubDate>Mon, 07 May 2018 13:57:58 -0500</pubDate>
+      
+      <guid>https://edwarnicke.github.io/blog/inception/</guid>
+      <description>Inception The goal of this blog post is to blog the creation of the blog and this blog post. Its strangeloops all the way down. To get there, we will be using Hugo, the amazing Go based static website generator.
+Hugo uses Go templates to generate a static website from Markdown.
+Hugo is themeable, and comes with no default theme. In this blog post we will be using the Future Imperfect theme.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,51 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: ~/hugo/public
+    steps:
+      - checkout
+      - run:
+          name: Update submodules
+          command: git submodule sync && git submodule update --init
+      - run:
+          name: Build website
+          command: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+      - run:
+          name: Push website to github.io
+          command: |
+            if [ ! -z ${CIRCLE_PULL_REQUEST} ]; then echo true;fi
+            set -xe -o pipefail
+            cd public/
+            if ! git diff --exit-code; then
+              git add .
+              printf "Hugo site generation from:\n https://github.com/${CIRCLE_PROJECT_USERNAME}/hugo.${CIRCLE_PROJECT_USERNAME}.github.io/tree/$(cd ../;git rev-parse --short HEAD)\n\n" > commit.msg
+              (cd ..;git log -1) >> commit.msg
+              cat commit.msg
+              git commit -s -F commit.msg
+              rm commit.msg
+              git checkout -B ${CIRCLE_BRANCH}
+              git push --dry-run -u https://${CIRCLE_PROJECT_USERNAME}:${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.github.io.git ${CIRCLE_BRANCH} -vf
+            fi
+      - run:
+          name: Update git submodule link to website
+          command: |
+            set -xe -o pipefail
+            if ! git diff --exit-code public/; then
+              git add public/
+              printf "Update reference to generated website in public/ for https://github.com/${CIRCLE_PROJECT_USERNAME}/hugo.${CIRCLE_PROJECT_USERNAME}.github.io/tree/$(git rev-parse --short HEAD)" > commit.msg
+              git log -1 >> commit.msg
+              git commit -s -F commit.msg
+              git checkout -B ${CIRCLE_BRANCH}
+              git status
+              git log -3
+              git push --dry-run -u https://${CIRCLE_PROJECT_USERNAME}:${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.github.io.git ${TRAVIS_BRANCH} -v
+            fi
+     # - run:
+     #    name: Test with htmlproofer
+     #    command: |
+     #      htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
+     #      --empty-alt-ignore --disable-external
